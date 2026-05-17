@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
+  <defs>
+    <!-- Dark radial base -->
+    <radialGradient id="base" cx="50%" cy="45%" r="52%">
+      <stop offset="0%"   stop-color="#28283a"/>
+      <stop offset="100%" stop-color="#0e0e16"/>
+    </radialGradient>
+    <!-- Orange-gold gradient for border & heart -->
+    <linearGradient id="og" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%"   stop-color="#f97316"/>
+      <stop offset="100%" stop-color="#fbbf24"/>
+    </linearGradient>
+    <!-- Glow filter -->
+    <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="1.8" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="heartglow" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="2" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <!-- Clip to circle -->
+    <clipPath id="circ"><circle cx="50" cy="50" r="47"/></clipPath>
+  </defs>
+
+  <!-- Base circle -->
+  <circle cx="50" cy="50" r="48" fill="url(#base)"/>
+
+  <!-- Outer gold border ring -->
+  <circle cx="50" cy="50" r="46.5" fill="none" stroke="url(#og)" stroke-width="1.4" opacity="0.9"/>
+
+  <!-- Inner thin ring (subtle) -->
+  <circle cx="50" cy="50" r="42.5" fill="none" stroke="#6b4f18" stroke-width="0.5" opacity="0.6"/>
+
+  <!-- 24 tiny dots on outer ring -->
+  <g fill="#fbbf24" opacity="0.7" filter="url(#glow)">
+    <circle cx="50"    cy="3.5"  r="1.2"/>
+    <circle cx="74.0"  cy="10.2" r="0.9"/>
+    <circle cx="90.2"  cy="29.5" r="1.2"/>
+    <circle cx="96.5"  cy="50"   r="0.9"/>
+    <circle cx="90.2"  cy="70.5" r="1.2"/>
+    <circle cx="74.0"  cy="89.8" r="0.9"/>
+    <circle cx="50"    cy="96.5" r="1.2"/>
+    <circle cx="26.0"  cy="89.8" r="0.9"/>
+    <circle cx="9.8"   cy="70.5" r="1.2"/>
+    <circle cx="3.5"   cy="50"   r="0.9"/>
+    <circle cx="9.8"   cy="29.5" r="1.2"/>
+    <circle cx="26.0"  cy="10.2" r="0.9"/>
+  </g>
+
+  <!-- "G" — left letter (white, clean geometric) -->
+  <g fill="white" clip-path="url(#circ)">
+    <!-- Top bar -->
+    <rect x="17" y="30" width="14" height="4" rx="1.5"/>
+    <!-- Left bar -->
+    <rect x="17" y="30" width="4"  height="38" rx="1.5"/>
+    <!-- Bottom bar -->
+    <rect x="17" y="64" width="14" height="4" rx="1.5"/>
+    <!-- Right lower bar -->
+    <rect x="27" y="50" width="4"  height="18" rx="1.5"/>
+    <!-- Middle crossbar -->
+    <rect x="24" y="49" width="7"  height="4" rx="1.5"/>
+  </g>
+
+  <!-- "E" — right letter (white, clean geometric) -->
+  <g fill="white" clip-path="url(#circ)">
+    <!-- Left bar -->
+    <rect x="59" y="30" width="4"  height="38" rx="1.5"/>
+    <!-- Top bar -->
+    <rect x="59" y="30" width="16" height="4" rx="1.5"/>
+    <!-- Middle bar -->
+    <rect x="59" y="49" width="13" height="4" rx="1.5"/>
+    <!-- Bottom bar -->
+    <rect x="59" y="64" width="16" height="4" rx="1.5"/>
+  </g>
+
+  <!-- Heart between G and E (gold, glowing) -->
+  <g filter="url(#heartglow)" transform="translate(50,49)">
+    <!-- Heart path: centered at origin -->
+    <path d="M0,-4 C0,-9 -8,-9 -8,-3 C-8,2 0,8 0,8 C0,8 8,2 8,-3 C8,-9 0,-9 0,-4 Z"
+          fill="url(#og)" opacity="0.95"/>
+  </g>
+
+</svg>
