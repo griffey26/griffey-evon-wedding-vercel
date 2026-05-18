@@ -118,7 +118,7 @@ export default function RSVPSection() {
         fetch(GSHEET_URL, {
           method:  'POST',
           mode:    'no-cors',
-          headers: { 'Content-Type': 'application/json' },
+          headers: { 'Content-Type': 'text/plain' },
           body: JSON.stringify({
             '姓名':         form.name,
             '電話_LINE':    form.contact,
